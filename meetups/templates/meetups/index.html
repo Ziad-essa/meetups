@@ -1,0 +1,29 @@
+{% extends 'meetups/base/base.html' %}
+{% load static %}
+{% block site_css %}
+<link rel="stylesheet" href="{% static 'meetups/styles/all-meetups.css' %}">
+{% endblock %}
+
+{% block title %} ALL MEETUPS {% endblock %}
+
+{% block main_heading %}
+we got meetups coming up!
+<p>admin panal info</p>
+<p>username: "ziadessa"</p>
+<p>password: "deodeodeo123"</p>
+{% endblock %}
+
+{% block header_contant %}
+find the one that best suits you needs
+{% endblock %}
+
+{% block body %}
+<section>
+    <h2>Upcoming meetups</h2>
+    <ol>
+        {% for meetup_item in meetups %}
+        {% include 'meetups/includes/meetup-item.html' with img=meetup_item.image.url title=meetup_item.title location=meetup_item.location slug=meetup_item.slug %}
+        {% endfor %}
+    </ol>
+</section>
+{% endblock %}

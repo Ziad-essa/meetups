@@ -1,0 +1,31 @@
+{% extends 'meetups/base/base.html' %}
+{% load static %}
+
+{% block site_css %} 
+    <link rel="stylesheet" href="{% static 'meetups/styles/meetup-details.css' %}">
+{% endblock %}
+{% block title %} {{selected_meetups.title}} {% endblock %}
+
+{% block main_heading %} 
+{{selected_meetups.title}}
+{% endblock %}
+{% block body %}
+<article>
+    <img id="main-image" src="{{ selected_meetups.image.url }}" alt="">
+    <section id="location">
+        <h2>Meetup location</h2>
+        <address>This meetup takes place in <span>{{selected_meetups.location.name}}</span> {{selected_meetups.location.name}}</address>
+    </section>
+    <section id="details">
+       <h2>what is this meetup about?</h2>
+       <p>{{selected_meetups.description}}</p>
+       <footer>
+        <p>need more details? <a href="{{ selected_meetups.organizer_email }}">please contact the organizer</a> </p>
+       </footer> 
+    </section>
+    <section id="registration">
+        <h2>join us</h2>
+        <h2>form</h2>
+    </section>
+</article>
+{% endblock %}
